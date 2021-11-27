@@ -1,0 +1,43 @@
+﻿@using ProjectHotelMVC.Models
+@model BookingInfoRegViewModel
+
+
+<div class="BookingRoom-Container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="Booking-Info"><b>Номер комнаты:</b> @Model.RoomID</div>
+    <div class="Booking-Info"><b>Дата заезда:</b> @Model.StartBooking</div>
+    <div class="Booking-Info"><b>Дата выезда:</b> @Model.EndBooking</div>
+    <div class="Booking-Info"><b>Цена:</b> @Model.TotalPrice</div>
+    <hr />
+    @using (Html.BeginForm("CreateBooking", "Booking", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.RoomID);
+        @Html.HiddenFor(x => x.StartBooking);
+        @Html.HiddenFor(x => x.EndBooking);
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(x => x.Customer.FirstName)
+            @Html.EditorFor(x => x.Customer.FirstName)
+            @Html.ValidationMessageFor(x => x.Customer.FirstName, null, new { @class = "ValMSG" })
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(x => x.Customer.LastName)
+            @Html.EditorFor(x => x.Customer.LastName)
+            @Html.ValidationMessageFor(x => x.Customer.LastName, null, new { @class = "ValMSG" })
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(x => x.Customer.Patronymic)
+            @Html.EditorFor(x => x.Customer.Patronymic)
+            @Html.ValidationMessageFor(x => x.Customer.Patronymic, null, new { @class = "ValMSG" })
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(x => x.Customer.PhoneNumber)
+            @Html.EditorFor(x => x.Customer.PhoneNumber)
+            @Html.ValidationMessageFor(x => x.Customer.PhoneNumber, null, new { @class = "ValMSG" })
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(x => x.Customer.PassportID)
+            @Html.EditorFor(x => x.Customer.PassportID)
+            @Html.ValidationMessageFor(x => x.Customer.PassportID, null, new { @class = "ValMSG" })
+        </div>
+        <input type="submit" value="Забронировать!" class="Category-BookingBtn col-md-offset-5 col-lg-offset-0-5" />
+    }
+</div>

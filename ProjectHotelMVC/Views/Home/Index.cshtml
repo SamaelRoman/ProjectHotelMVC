@@ -1,0 +1,17 @@
+﻿@model List<ProjectHotelMVC.Models.CategoryViewModel>
+@{
+    Layout = "_Layout";
+}
+
+<div class="PageTitle text-center"><h3>Доступные категории номеров!</h3></div>
+
+
+@if (Model != null)
+{
+    foreach (var Category in Model)
+    {
+        <div class="row">
+            @{ await Html.RenderPartialAsync("_CategoryPartial", Category);}
+        </div>
+    }
+}

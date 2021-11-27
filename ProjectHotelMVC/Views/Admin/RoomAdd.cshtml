@@ -1,0 +1,48 @@
+﻿@model ProjectHotelMVC.Models.RoomViewModel
+
+@{
+    ViewData["Title"] = "Добаваить номер";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Добавить номер!</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RoomAdd">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ID" class="control-label"></label>
+                <input asp-for="ID" class="form-control" />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="CategoryID" class="control-label">Категория номера</label>
+                <select name="CategoryID" required>
+                    @foreach (var C in ViewBag.CategoryForRoomCreate as List<CategoryViewModel>)
+                    {
+                        <option value="@C.ID">@C.Title</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Фотографии номера</label><br />
+                <input type="url" name="RoomImgs[]" placeholder="Фото 1" required /><br />
+                <input type="url" name="RoomImgs[]" placeholder="Фото 2" required /><br />
+                <input type="url" name="RoomImgs[]" placeholder="Фото 3" required /><br />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Room" asp-controller="Admin">Назад к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

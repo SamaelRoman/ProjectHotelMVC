@@ -1,0 +1,41 @@
+﻿@model ProjectHotelMVC.Models.RoomViewModel
+
+@{
+    ViewData["Title"] = "Изменить номер";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Изменить номер</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("RoomEdit", "Admin", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label class="control-label">ID</label>
+                @Html.DisplayFor(x => x.ID)
+            </div>
+            <div class="form-group">
+                <label for="CategoryID" class="control-label">Категория номера</label>
+                <select name="CategoryID" required>
+                    @foreach (var C in ViewBag.CategoryForRoomCreate as List<CategoryViewModel>)
+                    {
+                        <option value="@C.ID")>@C.Title</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-default" />
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Room" asp-controller="Admin">Назад к спискуt</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

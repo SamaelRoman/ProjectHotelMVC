@@ -1,0 +1,14 @@
+﻿@model ProjectHotelMVC.Models.CategoryViewModel
+
+<div class="col-md-12 Category-Container">
+    <div class="col-md-4 text-center col-xs-12 col-sm-12 Category-LeftBar">
+        <span class="Category-Title">@Model.Title</span><br />
+        <hr />
+        <span class="Category-Price">@Model.CategoryInfos.First(CI => CI.PriceAtTheMomentStart <= DateTime.Now && (CI.PriceAtTheMomentEnd >= DateTime.Now || CI.PriceAtTheMomentEnd == null)).Price₴ / Сутки</span><br />
+        <span class="Category-Capacity">До @Model.Capacity человек.</span><br />
+        @Html.ActionLink("Забронировать", "SearchAvailbleRooms", "Booking", new { CategoryID = Model.ID }, new { @class = "CategoryID btn btn-default Category-BookingBtn" })
+    </div>
+    <div class="col-md-7 col-xs-12 col-sm-12 Category-RightBar">
+        <img src="@Model.Preview" class="Category-Img" height="325"/>
+    </div>
+</div>

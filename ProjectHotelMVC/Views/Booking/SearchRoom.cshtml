@@ -1,0 +1,50 @@
+﻿@model List<ProjectHotelMVC.Models.AvailbleRoomViewModel>
+@{
+    Guid? TCategoryID = null;
+    if (ViewBag.TargetCategory != null)
+    {
+        TCategoryID = new Guid(ViewBag.TargetCategory);
+    }
+}
+<div class="SearchRoom-Container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    @using (Html.BeginForm("SearchAvailbleRooms", "Booking", FormMethod.Post))
+    {
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 SearchRoom-Item-Wrapper">
+            <label for="CategoryIdForSearch">Категория</label>
+            <select name="CategoryID" id="CategoryIdForSearch" class="SearchRoom-SelectCategory">
+                <option value="">Выберите категорию</option>
+                @foreach (var C in ViewBag.CategoryToSearch as List<CategoryViewModel>)
+                {
+                    @: <option value="@C.ID" @(C.ID == TCategoryID ? "Selected" : "")>@C.Title</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 SearchRoom-Item-Wrapper">
+            <label for="StartDateForSearch">Дата заезда</label>
+            <input type="date" name="Start" id="StartDateForSearch" placeholder="Дата заезда" min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")" value="@ViewBag.StartDate" required />
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 SearchRoom-Item-Wrapper">
+            <label for="EndDateForSearch">Дата выезда</label>
+            <input type="date" name="End" id="EndDateForSearch" placeholder="Дата выезда" min="@DateTime.Now.AddDays(2).ToString("yyyy-MM-dd")" value="@ViewBag.EndDate" required />
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 SearchRoom-Item-Wrapper">
+            <input type="submit" value="Поиск" />
+        </div>
+    }
+</div>
+@if (Model != null)
+{
+    foreach (var Room in Model)
+    {
+        <div class="row">
+            @{ await Html.RenderPartialAsync("_RoomPartial", Room);}
+        </div>
+    }
+}
+else
+{
+    if(Context.Request.Method.ToLower() == "post")
+    {
+        <h3>На данный диапозон дат, свободных номеров в данной категории не обнаруженно!</h3>
+    }
+}

@@ -1,0 +1,20 @@
+﻿@model EmplpoyeeGetTokenViewModel
+@if (ViewBag.AuthMSG != null)
+{
+    <h3 style="color:red;">@ViewBag.AuthMSG</h3>
+}
+<div class="col-xs-12 col-sm-12 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4 ">
+    <form asp-action="Login" asp-controller="Auth" method="post" asp-antiforgery="true" class="LoginForm">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(X => X.Login, "Логин:")
+            @Html.EditorFor(X => X.Login)
+            @Html.ValidationMessageFor(X => X.Login, null, new { @class = "ValMSG" })
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(X => X.Password, "Пароль:")
+            @Html.EditorFor(X => X.Password)
+            @Html.ValidationMessageFor(X => X.Password, null, new { @class = "ValMSG" })
+        </div>
+        <input type="submit" value="Войти" class="col-md-offset-4 col-lg-offset-4"/>
+    </form>
+</div>

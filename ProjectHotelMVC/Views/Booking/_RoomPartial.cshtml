@@ -1,0 +1,24 @@
+﻿@model ProjectHotelMVC.Models.AvailbleRoomViewModel
+@{ 
+    var Categories = ViewBag.CategoryToSearch as List<CategoryViewModel>;
+    var Category = Categories.Find(C=>C.ID == Model.CategoryID);
+}
+<div class="col-md-12 Category-Container">
+    <div class="col-md-4 text-center col-xs-12 col-sm-12 Category-LeftBar">
+        <span class="Category-Title">@Model.ID</span><br />
+        <span class="Category-Title">@Category.Title</span><br />
+        <hr />
+        <span class="Category-Price">@Category.CategoryInfos.First(CI => CI.PriceAtTheMomentStart <= DateTime.Now && (CI.PriceAtTheMomentEnd >= DateTime.Now || CI.PriceAtTheMomentEnd == null)).Price₴ / Сутки</span><br />
+        <span class="Category-Capacity">До @Category.Capacity человек.</span><br />
+        @using (Html.BeginForm("CreateBooking", "Booking", FormMethod.Get))
+        {
+            <input type="hidden" name="StartDate" value="@ViewBag.StartDate" />
+            <input type="hidden" name="EndDate" value="@ViewBag.EndDate" />
+            <input type="hidden" name="RoomID" value="@Model.ID" />
+            <input type="submit"  class="CategoryID btn btn-default Category-BookingBtn" value="Забронировать"/>
+        }       
+    </div>
+    <div class="col-md-7 col-xs-12 col-sm-12 Category-RightBar">
+        <img src="@Category.Preview" class="Category-Img" height="325" />
+    </div>
+</div>

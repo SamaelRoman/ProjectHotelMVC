@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProjectHotelMVC</title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap-3.3.7-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            
+            <div class="container">
+                
+                <div class="navbar-header">
+                    
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                    @Html.ActionLink("MyHotel", "Index", "About", null, new { @class = "navbar-brand" })
+                </div>
+                
+                <div class="collapse navbar-collapse" id="navbar-main">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Категории", "Index", "Home")</li>
+                        <li>@Html.ActionLink("О нас", "Index", "About")</li>
+                        <li>@Html.ActionLink("Контакты", "Index", "Contacts")</li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Проверить бронь", "BookingState", "Booking")</li>
+                        <li>@Html.ActionLink("Забронировать", "SearchAvailbleRooms", "Booking")</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 AdminNavContainer">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                    @Html.ActionLink("Категории", "Category", "Admin")
+                    @Html.ActionLink("Номера", "Room", "Admin")
+                    @Html.ActionLink("Клиенты", "Customer", "Admin")
+                    @Html.ActionLink("Сотрудники", "Employee", "Admin")
+                    @Html.ActionLink("Роли", "EmployeeRole", "Admin")
+                    @Html.ActionLink("Заказы", "BookingInfo", "Admin")
+                </div>
+                <div class="text-right">
+                    @Html.ActionLink("Выход","Logout","Auth")
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                @RenderBody()
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="container Footer-Container">
+            <div class="copyright text-center" ">
+                2021 © Гостиница «MyHotel» г. Харьков. Официальный сайт
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/moment-with-locales.min.js"></script>
+    <script src="~/lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

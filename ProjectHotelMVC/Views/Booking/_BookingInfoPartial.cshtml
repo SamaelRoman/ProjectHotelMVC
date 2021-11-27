@@ -1,0 +1,30 @@
+﻿@model BookingInfoViewModel
+<div class="col-xs-12  col-sm-12 col-md-12 col-lg-12 BookingContainer">
+    <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12">
+        @Html.LabelFor(x => x.ID, new { @class = "BookingStateLabel" })
+        <span class="BookingStateDisplay">@Html.DisplayFor(x => x.ID)</span>
+    </div>
+    <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12">
+        @Html.LabelFor(x => x.RoomID, new { @class = "BookingStateLabel" })
+        <span class="BookingStateDisplay">@Html.DisplayFor(x => x.RoomID)</span>
+    </div>
+    <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12">
+        @Html.LabelFor(x => x.StartBooking, new { @class = "BookingStateLabel" })
+        <span class="BookingStateDisplay">@Html.DisplayFor(x => x.StartBooking)</span>
+    </div>
+    <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12">
+        @Html.LabelFor(x => x.EndBooking, new { @class = "BookingStateLabel" })
+        <span class="BookingStateDisplay">@Html.DisplayFor(x => x.EndBooking)</span>
+    </div>
+    <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12">
+        @Html.LabelFor(x => x.TotalPrice, new { @class = "BookingStateLabel" })
+        <span class="BookingStateDisplay">@Html.DisplayFor(x => x.TotalPrice)</span>
+    </div>
+    <form  asp-action="CancelBooking" asp-controller="Booking" asp-antiforgery="true" method="post" onclick="return confirm('Отменить бронирование заказа \n @Model.ID  ?!')">
+        <input hidden type="text" name="ID" value="@Model.ID"/>
+        <input type="submit" value="Отменить бронирование!" id="CancelBookingBTN"/>
+    </form>
+</div>
+<script>
+
+</script>

@@ -1,0 +1,29 @@
+﻿@model List<BookingInfoViewModel>
+<div class="SearchRoom-Container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    @using (Html.BeginForm("BookingState", "Booking", FormMethod.Post))
+    {
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 SearchRoom-Item-Wrapper">
+            <label for="PassportID">Номер паспорта</label>
+            <input type="text" name="PassportID" id="PassportID" placeholder="Номер паспорта" required />
+        </div>
+        <div class=" col-lg-offset-5 col-md-offset-5 col-lg-1 col-sm-12 col-md-1 col-xs-12 SearchRoom-Item-Wrapper">
+            <input type="submit" value="Поиск" />
+        </div>
+    }
+</div>
+@if(ViewBag.CancelStateTrue == true)
+{
+    <h3>Заказ успешно отменен!</h3>
+}
+
+@if (Model != null)
+{
+    foreach(var BI in Model)
+    {
+        <div class="row">
+            <div class="BookingStatesContainer">
+                @{await Html.RenderPartialAsync("_BookingInfoPartial", BI);}
+            </div>
+        </div>
+    }  
+}

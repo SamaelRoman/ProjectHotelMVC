@@ -1,0 +1,35 @@
+﻿@model List<BookingInfoViewModel>
+@{
+    Layout = "_AdminLayout";
+}
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+    <h3>Заказы</h3>
+</div>
+<table class="table table-hover">
+    <tr>
+        <th>ID-Заказа</th>
+        <th>ID-Клиента</th>
+        <th>ID-Номера</th>
+        <th>Итоговая цена</th>
+        <th>Дата заезда</th>
+        <th>Дата выезда</th>
+        <th>Отменить бронь</th>
+    </tr>
+    @foreach (var C in Model)
+    {
+        <tr>
+            <td>@C.ID</td>
+            <td>@C.CustomerID</td>
+            <td>@C.RoomID</td>
+            <td>@C.TotalPrice</td>
+            <td>@C.StartBooking.ToString("dd.MM.yyyy")</td>
+            <td>@C.EndBooking.ToString("dd.MM.yyyy")</td>
+            <td>
+                <form method="post" asp-controller="Booking" asp-action="CancelBooking" onclick="return confirm('Вы действително хотите отменить бронь @C.ID?!')">
+                    <input type="hidden" name="ID" value="@C.ID" />
+                    <input type="submit" value="Отменить бронь">
+                </form>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,30 @@
+﻿@model List<EmployeeRoleViewModel>
+@{
+    Layout = "_AdminLayout";
+}
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+    <h3>Роли</h3>
+</div>
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Удалить</th>
+        <th>Изменить</th>
+    </tr>
+    @foreach (var C in Model)
+    {
+        <tr>
+            <td>@C.ID</td>
+            <td>@C.RoleName</td>
+            <td>
+                <form method="post" asp-controller="Admin" asp-action="EmployeeRoleDelete" onclick="return confirm('Вы действително хотите удалить роль @C.RoleName?!')">
+                    <input type="hidden" name="ID" value="@C.ID" />
+                    <input type="submit" value="Удалить">
+                </form>
+            </td>
+            <td>@Html.ActionLink("Изменить", "EmployeeRoleEdit", "Admin", new { ID = C.ID })</td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Добавить", "EmployeeRoleAdd", "Admin")

@@ -1,0 +1,261 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+.navbar-default {
+    background-color: snow;
+    margin-bottom:0;
+}
+.navbar-brand {
+    font-size: 22px;
+    color: #BF733D !important;
+    font-weight:bold;
+}
+.navbar-nav li a {
+    font-size: 18px;
+    color: #BF733D !important;
+}
+.navbar-nav li:hover a {
+    font-size: 18px;
+    color: #BF733D !important;
+    text-decoration: underline;
+}
+.navbar-right{
+    margin-top:8px;
+}
+.navbar-right li a {
+    border: 3px solid #BF733D;
+    padding: 2px;
+    font-weight: bolder;
+}
+.navbar-right li{
+    margin-left:8px;
+}
+.Category-Container {
+    height:325px;
+    margin-bottom:10px;
+}
+.Category-Container .Category-LeftBar{
+    border:2px solid #BF733D;
+    height:100%;
+    padding:10px;
+}
+.Category-Container .Category-LeftBar {
+    padding-top:60px;
+}
+.Category-Container .Category-LeftBar hr{
+    border-color:#C0743F;
+    margin:5px;
+
+}
+.Category-Container .Category-RightBar{
+    background:linear-gradient(90deg, #BF733D,white);
+}
+.Category-BookingBtn {
+    background-color: #BF733D;
+    color:white;
+    border:0px;
+    border-radius:0px;
+}
+.Category-BookingBtn:hover{
+    background-color: #DE8A4E;
+    color: white;
+    border: 0px;
+    border-radius: 0px;
+}
+.Category-Img {
+    border-top: 2px solid #BF743F;
+    border-bottom: 2px solid #BF743F;
+}
+.Category-Title{
+    font-size:32px;
+}
+.Category-Price {
+    font-size: 22px;
+}
+.Category-Capacity{
+    font-size: 18px;
+}
+.Footer-Container {
+    padding-top:60px;
+    height: 100px;
+    background-color: #BF8155;
+}
+.SearchRoom-Container {
+    background-color: #FFFAFA;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding:12px 6px;
+    border-top: 2px solid #BF733D;
+    border-bottom: 2px solid #BF733D;
+}
+.SearchRoom-Item-Wrapper select {
+    border: 2px solid #BF733D;
+    background-color: white;
+    color: #BF733D;
+}
+.SearchRoom-Item-Wrapper input{
+    border: 2px solid #BF733D;
+    background-color: white;
+    color: #BF733D;
+}
+input, input:hover, input:active, input:target{
+    outline:none;
+}
+.SearchRoom-Item-Wrapper label{
+    color: #BF733D;
+    font-size:14px;
+}
+.SearchRoom-Item-Wrapper input[type = "submit"] {
+    color: #BF733D;
+    font-size: 14px;
+    font-weight:bolder;
+}
+.SearchRoom-Item-Wrapper input[type = "submit"]:hover {
+    color: #F18E49;
+    border:2px solid #F18E49;
+    font-size: 14px;
+    font-weight: bolder;
+}
+.BookingRoom-Container{
+    padding:20px 10px;
+}
+.Booking-Info{
+    font-size:16px;
+    margin-bottom:8px;
+}
+.ValMSG{
+    color:red;
+}
+.BookingRoom-Container form div{
+    padding:0px;
+    margin-bottom:8px;
+}
+.BookingRoom-Container form input[type=submit] {
+    font-size:22px;
+}
+.BookingStateLabel{
+    font-size:16px;
+    font-weight:bold;
+}
+.BookingStateDisplay {
+    font-size: 16px;
+}
+.BookingStatesContainer div{
+    padding:0px;
+    margin:0px;
+}
+.BookingStatesContainer {
+    padding: 20px 10px;
+}
+.BookingContainer {
+    padding: 8px 8px !important;
+    background: linear-gradient(90deg, #FCEFEF,white);
+}
+#CancelBookingBTN{
+    border:none;
+    outline:none;
+    background:none;
+    color:red;
+    font-size:16px;
+    font-weight:bold;
+}
+.LoginForm {
+    background: linear-gradient(90deg, #FCEFEF,white);
+    border-top: 2px solid #F18E49;
+    border-bottom: 2px solid #F18E49;
+    padding:10px 6px;
+    margin:0px;
+    display:block;
+}
+.LoginForm input[type=submit]{
+    background-color: #BF733D;
+    color:white;
+    border:0px;
+    border-radius:0px;
+    font-size:16px;
+}
+.AdminNavContainer {
+    background-color: #FFFAFA;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding: 12px 6px;
+    border-top: 2px solid #BF733D;
+    border-bottom: 2px solid #BF733D;
+}
+.AdminNavContainer a{
+    text-decoration:none;
+    font-size:16px;
+    color:#BF733D;
+    margin-right:12px;
+}
+.AdminNavContainer a:hover{
+    color:#ED9150;
+    text-decoration:underline;
+}
